@@ -1,59 +1,32 @@
-#include<iostream>
-#include<conio.h>
-#include<stdlib.h>
-using namespace std;
+#include <stdlib.h>
+#include <stdio.h>
 
-void pedirDatos();
-void ordenarNumeros(int *,int);
-void mostrarArregloOrdenado(int *,int);
 
-int nElementos, *elemento;
-
-int main(){
-	pedirDatos();
-	ordenarNumeros(elemento,nElementos);	
-	mostrarArregloOrdenado(elemento,nElementos);
+int main (){
+	int num[100],n,aux,i,j;
+	int* numero;
+	int* tamano;
 	
-	delete[] elemento;
+	numero = &num[0];
+	tamano = &n;
+	printf("Escriba el tamaño del vector: \n");
+	scanf("%d",&n);
+		for(int i=0;i<*tamano;i++){
+		printf("digite el elemente #%d del vector: \n",i+1);
+	    scanf("%d",&num[i]);
+	}
+	for (i=0; i<*tamano-1; i++){
+        for (j=i+1; j<*tamano; j++) {
+           if(num[i]>num[j]){
+                aux = num[i];
+                num[i] = num[j];
+                num[j] = aux;
+            }
+           }
+         }
+       for(int i=0;i<*tamano;i++){
+		printf("los elementos del vector son: %d \n",*numero+i);}
+
 	
-	getch();
 	return 0;
-}
-
-void pedirDatos(){
-	printf("Digite el numero de elementos: ");
-	scanf("%d",&nElementos);
-
-	elemento = new int[nElementos];
-	
-	for(int i=0;i<nElementos;i++){
-		printf("digite un numero",i);
-		scanf("%d",*elemento+1);
-		
-	}
-}
-
-void ordenarNumeros(int *elemento,int nElementos){
-	int aux;
-	
-	
-	for(int i=0;i<nElementos;i++){
-		for(int j=0;j<nElementos-1;j++){
-			if(*(elemento+j) > *(elemento+j+1)){
-				aux = *(elemento+j);
-				*(elemento+j) = *(elemento+j+1);
-				*(elemento+j+1) = aux;
-			}
-		}
-	}
-}
-
-void mostrarArregloOrdenado(int *elemento,int nElementos){
-	printf("\n\nMostrando Arreglo Ordenado: ");
-	for(int i=0;i<nElementos;i++){
-		scanf("%d",*elemento+1);
-		
-		
-		
-	}
 }
